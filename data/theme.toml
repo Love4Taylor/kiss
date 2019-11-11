@@ -1,4 +1,5 @@
 [social.base]
+telegram = 'https://t.me/'
 codepen = 'https://codepen.io/'
 email =  'mailto:'
 facebook = 'https://facebook.com/'
