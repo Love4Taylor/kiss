@@ -11,6 +11,7 @@ enableRobotsTXT = true
 
 [params.features]
 disqusOnDemand = true  # Load Disqus comments on click
+quicklinkJS = true  # Enable quicklink by Google
 
 [params.assets]
 customCSS = ["css/custom.css"]

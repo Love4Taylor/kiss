@@ -6,6 +6,9 @@
     {{ end }}
   </div>
 </section>
+{{ if .Site.Params.Features.quicklinkJS }}
+{{- partial "quicklinkjs" . -}}
+{{ end }}
 {{ if .Site.GoogleAnalytics }}
 {{ template "_internal/google_analytics_async.html" . }}
 {{ end }}
