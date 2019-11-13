@@ -23,6 +23,9 @@
     {{ end}}
   </div>
 </section>
+{{ if findRE "class=\"img-small lazy\"" .Content 1 }}
+    <script src="/js/lazyload.js"></script>
+{{ end }}
 {{ if (and (.Site.Params.Info.codeCopy) (findRE "<pre" .Content 1)) }}
     <script src="/js/copycode.js"></script>
 {{ end }}
