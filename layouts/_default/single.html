@@ -13,7 +13,7 @@
     {{ partial "adsense" . }}
     {{ end }}
     <div class="content">
-      {{ .Content | replaceRE "<img src" "<img loading=\"lazy\" src" | safeHTML }}
+      {{ .Content }}
       {{ if .Site.Params.Info.related }}
       <div class="related">{{ partial "related" . }}</div>
       {{ end }}
