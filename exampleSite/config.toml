@@ -28,6 +28,7 @@ enableSocial = false # Adds OpenGraph and Twitter cards
 homeTitle = "" # Title for home page
 poweredby = true # Adds powered by Hugo and Kiss below Copyright section
 related = true # Includes related articles
+linksPage = " &#183; <a href=\"/links/\">Links</a>"
 
 [params.opengraph.facebook]
 admins = [] # array of Facebook IDs
