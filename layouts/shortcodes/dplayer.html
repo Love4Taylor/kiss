@@ -1,0 +1,54 @@
+<p>
+<div id="dplayer"></div>
+<script type="application/javascript">
+var ap_new_id = "dplayer-" + Math.random().toString(36).substring(2, 10);
+document.getElementById("dplayer").setAttribute("id", ap_new_id);
+const dp = new DPlayer({
+    container: document.getElementById(ap_new_id),{{ if (isset .Params `live`) }}
+    live: {{ safeJS (.Get `live`) }},{{ end }}{{ if (isset .Params `autoplay`) }}
+    autoplay: {{ safeJS (.Get `autoplay`) }},{{ end }}{{ if (isset .Params `theme`) }}
+    theme: '{{ safeJS (.Get `theme`) }}',{{ end }}{{ if (isset .Params `loop`) }}
+    loop: {{ safeJS (.Get `loop`) }},{{ end }}{{ if (isset .Params `lang`) }}
+    lang: '{{ safeJS (.Get `lang`) }}',{{ end }}{{ if (isset .Params `screenshot`) }}
+    screenshot: {{ safeJS (.Get `screenshot`) }},{{ end }}{{ if (isset .Params `hotkey`) }}
+    hotkey: {{ safeJS (.Get `hotkey`) }},{{ end }}{{ if (isset .Params `preload`) }}
+    preload: '{{ safeJS (.Get `preload`) }}',{{ end }}{{ if (isset .Params `logo`) }}
+    logo: '{{ safeJS (.Get `logo`) }}',{{ end }}
+    mutex: true,
+    video: { {{ if (isset .Params `quality`) }}
+        quality: [
+            {{ safeJS (.Get `quality`) }}
+        ],{{ if (isset .Params `defaultQuality`) }}
+        defaultQuality: '{{ safeJS (.Get `defaultQuality`) }}'{{ else }}
+        defaultQuality: 0{{ end }}{{ end }}{{ if (isset .Params `videoPic`) }},
+        pic: '{{ safeJS (.Get `videoPic`) }}'{{ end }}{{ if (isset .Params `videoThumbnails`) }},
+        thumbnails: '{{ safeJS (.Get `videoThumbnails`) }}'{{ end }}{{ if (isset .Params `videoUrl`) }},
+        url: '{{ safeJS (.Get `videoUrl`) }}'{{ end }}{{ if (isset .Params `videoType`) }},
+        type: '{{ safeJS (.Get `videoType`) }}'{{ end }}
+    }{{ if (isset .Params `subtitleUrl`) }},
+        subtitle: {
+        url: '{{ safeJS (.Get `subtitleUrl`) }}'{{ if (isset .Params `subtitleType`) }},
+        type: '{{ safeJS (.Get `subtitleType`) }}'{{ end }}{{ if (isset .Params `subtitleFontSize`) }},
+        fontSize: '{{ safeJS (.Get `subtitleFontSize`) }}'{{ end }}{{ if (isset .Params `subtitleBottom`) }},
+        bottom: '{{ safeJS (.Get `subtitleBottom`) }}'{{ end }}{{ if (isset .Params `subtitleColor`) }},
+        color: '{{ safeJS (.Get `subtitleColor`) }}'{{ end }}
+    }{{ end }}{{ if and (isset .Params `danmakuId`) (isset .Params `danmakuApi`) }},
+    danmaku: {
+        id: '{{ safeJS (.Get `danmakuId`) }}',
+        api: '{{ safeJS (.Get `danmakuApi`) }}'{{ if (isset .Params `danmakuToken`) }},
+        token: '{{ safeJS (.Get `danmakuToken`) }}'{{ end }}{{ if (isset .Params `danmakuMaximum`) }},
+        maximum: {{ safeJS (.Get `danmakuMaximum`) }}{{ end }}{{ if (isset .Params `danmakuAddition`) }},
+        addition: ['{{ safeJS (.Get `danmakuAddition`) }}']{{ end }}{{ if (isset .Params `danmakuUser`) }},
+        user: '{{ safeJS (.Get `danmakuUser`) }}'{{ end }}{{ if (isset .Params `danmakuBottom`) }},
+        bottom: '{{ safeJS (.Get `danmakuBottom`) }}'{{ end }}{{ if (isset .Params `danmakuUnlimited`) }},
+        unlimited: {{ safeJS (.Get `danmakuUnlimited`) }}{{ end }}
+    }{{ end }}{{ if (isset .Params `contextmenu`) }},
+    contextmenu: [
+        {{ safeJS (.Get `contextmenu`) }}
+    ]{{ end }}{{ if (isset .Params `highlight`) }},
+    highlight: [
+        {{ safeJS (.Get `highlight`) }}
+    ]{{ end }}
+});
+</script>
+</p>

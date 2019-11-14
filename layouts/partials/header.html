@@ -22,6 +22,13 @@
 <link rel="stylesheet" href="{{ "css/aplayer.min.css" | relURL }}"/>
 <script src="{{ "js/aplayer.min.js" | relURL }}"></script>
 {{ end }}
+{{ if findRE "<div id=\"dplayer\">" .Content 1 }}
+<link rel="stylesheet" href="{{ "css/dplayer.min.css" | relURL }}"/>
+{{ if findRE "type: 'hls'" .Content 1 }}
+<script src="{{ "js/hls.min.js" | relURL }}"></script>
+{{ end }}
+<script src="{{ "js/dplayer.min.js" | relURL }}"></script>
+{{ end }}
 {{- range .Site.Params.Assets.customCSS -}}
 <link rel='stylesheet' href='{{ . | absURL }}'>
 {{- end -}}
