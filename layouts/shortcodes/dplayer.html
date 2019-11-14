@@ -1,10 +1,10 @@
 <p>
 <div id="dplayer"></div>
 <script type="application/javascript">
-var ap_new_id = "dplayer-" + Math.random().toString(36).substring(2, 10);
-document.getElementById("dplayer").setAttribute("id", ap_new_id);
+var dp_new_id = "dplayer-" + Math.random().toString(36).substring(2, 10);
+document.getElementById("dplayer").setAttribute("id", dp_new_id);
 const dp = new DPlayer({
-    container: document.getElementById(ap_new_id),{{ if (isset .Params `live`) }}
+    container: document.getElementById(dp_new_id),{{ if (isset .Params `live`) }}
     live: {{ safeJS (.Get `live`) }},{{ end }}{{ if (isset .Params `autoplay`) }}
     autoplay: {{ safeJS (.Get `autoplay`) }},{{ end }}{{ if (isset .Params `theme`) }}
     theme: '{{ safeJS (.Get `theme`) }}',{{ end }}{{ if (isset .Params `loop`) }}
@@ -19,10 +19,10 @@ const dp = new DPlayer({
         quality: [
             {{ safeJS (.Get `quality`) }}
         ],{{ if (isset .Params `defaultQuality`) }}
-        defaultQuality: '{{ safeJS (.Get `defaultQuality`) }}'{{ else }}
-        defaultQuality: 0{{ end }}{{ end }}{{ if (isset .Params `videoPic`) }},
-        pic: '{{ safeJS (.Get `videoPic`) }}'{{ end }}{{ if (isset .Params `videoThumbnails`) }},
-        thumbnails: '{{ safeJS (.Get `videoThumbnails`) }}'{{ end }}{{ if (isset .Params `videoUrl`) }},
+        defaultQuality: '{{ safeJS (.Get `defaultQuality`) }}',{{ else }}
+        defaultQuality: 0,{{ end }}{{ end }}{{ if (isset .Params `videoPic`) }}
+        pic: '{{ safeJS (.Get `videoPic`) }}',{{ end }}{{ if (isset .Params `videoThumbnails`) }}
+        thumbnails: '{{ safeJS (.Get `videoThumbnails`) }}',{{ end }}{{ if (isset .Params `videoUrl`) }}
         url: '{{ safeJS (.Get `videoUrl`) }}'{{ end }}{{ if (isset .Params `videoType`) }},
         type: '{{ safeJS (.Get `videoType`) }}'{{ end }}
     }{{ if (isset .Params `subtitleUrl`) }},
