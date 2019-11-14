@@ -1,0 +1,31 @@
+<p>
+<div id="aplayer"></div>
+<script type="application/javascript">
+var ap_new_id = "aplayer-" + Math.random().toString(36).substring(2, 10);
+document.getElementById("aplayer").setAttribute("id", ap_new_id);
+var ap = new APlayer ({
+  container: document.getElementById(ap_new_id),{{ if (isset .Params `fixed`) }}
+  fixed: {{ .Get `fixed` }},{{ end }}{{ if (isset .Params `mini`) }}
+  mini: {{ .Get `mini` }},{{ end }}{{ if (isset .Params `autoplay`) }}
+  autoplay: {{ .Get `autoplay` }},{{ end }}{{ if (isset .Params `theme`) }}
+  theme: "{{ .Get `theme` }}"{{ end }}{{ if (isset .Params `loop`) }}
+  loop: "{{ .Get `loop` }}",{{ end }}{{ if (isset .Params `order`) }}
+  order: "{{ .Get `order` }}",{{ end }}{{ if (isset .Params `preload`) }}
+  preload: "{{ .Get `preload` }}",{{ end }}
+  mutex: true,{{ if (isset .Params `lrcType`) }}
+  lrcType: {{ .Get `lrcType` }},{{ end }}{{if (eq (.Get `playlist`) "true")}}
+  audio:[
+  {{ safeJS (.Get `audio`) }}
+  ]{{ else }}
+  audio:[
+    {
+      title: "{{ .Get `title` }}",
+      author: "{{ .Get `author` }}",
+      url: "{{ .Get `url` }}"{{ if (isset .Params `pic`) }},
+      pic: "{{ .Get `pic` }}"{{ end }}{{ if (isset .Params `lrc`) }},
+      lrc: "{{ .Get `lrc` }}"{{ end }}
+    }
+  ]{{ end }}
+});
+</script>
+</p>

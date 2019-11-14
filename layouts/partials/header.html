@@ -18,6 +18,10 @@
 {{ if findRE "class=\"img-small lazy\"" .Content 1 }}
 <link rel="stylesheet" href="{{ "css/lazyload.css" | relURL }}"/>
 {{ end }}
+{{ if findRE "<div id=\"aplayer\">" .Content 1 }}
+<link rel="stylesheet" href="{{ "css/aplayer.min.css" | relURL }}"/>
+<script src="{{ "js/aplayer.min.js" | relURL }}"></script>
+{{ end }}
 {{- range .Site.Params.Assets.customCSS -}}
 <link rel='stylesheet' href='{{ . | absURL }}'>
 {{- end -}}
