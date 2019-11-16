@@ -4,7 +4,7 @@
 <p>
 <div class="image_placeholder" style="max-width: {{$image.Width}}px">
 <div class="image_placeholder_inside">
-  <img src="{{ $placeholder.Permalink }}" data-src="{{ $image.Permalink }}" class="img-small lazy" alt="{{ .Get "alt" }}" />
+  <img src="{{ $placeholder.RelPermalink }}" data-src="{{ $image.RelPermalink }}" class="img-small lazy" alt="{{ .Get "alt" }}" />
   <div style="padding-bottom: {{ div (mul $image.Height 100.0) $image.Width }}%;"></div>
 </div>
 </div>
