@@ -14,20 +14,27 @@
 {{ if .Site.Params.rss }}
 <link href="{{ .Site.RSSLink }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" />
 {{ end }}
-<link rel="stylesheet" href="{{ "css/style.css" | relURL }}"/>
+{{ $mainCSS := resources.Get "css/style.css" | resources.Minify }}
+<link rel="stylesheet" href="{{ $mainCSS.RelPermalink }}"/>
 {{ if findRE "class=\"img-small lazy\"" .Content 1 }}
-<link rel="stylesheet" href="{{ "css/lazyload.css" | relURL }}"/>
+{{ $lazyloadCSS := resources.Get "css/lazyload.css" | resources.Minify }}
+<link rel="stylesheet" href="{{ $lazyloadCSS.RelPermalink }}"/>
 {{ end }}
 {{ if findRE "<div id=\"aplayer\">" .Content 1 }}
-<link rel="stylesheet" href="{{ "css/aplayer.min.css" | relURL }}"/>
-<script src="{{ "js/aplayer.min.js" | relURL }}"></script>
+{{ $aplayerCSS := resources.Get "css/aplayer.min.css" }}
+{{ $aplayerJS := resources.Get "js/aplayer.min.js" }}
+<link rel="stylesheet" href="{{ $aplayerCSS.RelPermalink }}"/>
+<script src="{{ $aplayerJS.RelPermalink }}"></script>
 {{ end }}
 {{ if findRE "<div id=\"dplayer\">" .Content 1 }}
-<link rel="stylesheet" href="{{ "css/dplayer.min.css" | relURL }}"/>
+{{ $dplayerCSS := resources.Get "css/dplayer.min.css" }}
+<link rel="stylesheet" href="{{ $dplayerCSS.RelPermalink }}"/>
 {{ if findRE "type: 'hls'" .Content 1 }}
-<script src="{{ "js/hls.min.js" | relURL }}"></script>
+{{ $hlsJS := resources.Get "js/hls.min.js" }}
+<script src="{{ $hlsJS.RelPermalink }}"></script>
 {{ end }}
-<script src="{{ "js/dplayer.min.js" | relURL }}"></script>
+{{ $dplayerJS := resources.Get "js/dplayer.min.js" }}
+<script src="{{ $dplayerJS.RelPermalink }}"></script>
 {{ end }}
 {{- range .Site.Params.Assets.customCSS -}}
 <link rel='stylesheet' href='{{ . | absURL }}'>

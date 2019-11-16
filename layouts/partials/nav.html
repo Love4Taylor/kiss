@@ -52,5 +52,6 @@
     </nav>
 
   </div>
-  <script src="/js/navicon-shift.js"></script>
+  {{ $navJS := resources.Get "js/navicon-shift.js" | resources.Minify }}
+  <script src="{{ $navJS.RelPermalink }}"></script>
 </section>

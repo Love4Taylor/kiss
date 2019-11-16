@@ -24,10 +24,12 @@
   </div>
 </section>
 {{ if findRE "class=\"img-small lazy\"" .Content 1 }}
-    <script src="/js/lazyload.js"></script>
+    {{ $lazyloadJS := resources.Get "js/lazyload.js" | resources.Minify }}
+    <script src="{{ $lazyloadJS.RelPermalink }}"></script>
 {{ end }}
 {{ if (and (.Site.Params.Info.codeCopy) (findRE "<pre" .Content 1)) }}
-    <script src="/js/copycode.js"></script>
+    {{ $copycodeJS := resources.Get "js/copycode.js" | resources.Minify }}
+    <script src="{{ $copycodeJS.RelPermalink }}"></script>
 {{ end }}
 {{ partial "disqus" . }}
 {{ partial "footer" . }}
