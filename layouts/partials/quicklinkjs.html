@@ -15,6 +15,7 @@ quicklink.listen({
     uri => uri.includes('.aac'),
     uri => uri.includes('.mp3'),
     uri => uri.includes('.flac'),
+    uri => uri.includes('.zip'),
     (uri, elem) => elem.hasAttribute('noprefetch')
   ]
 });
