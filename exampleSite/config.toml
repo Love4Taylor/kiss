@@ -29,6 +29,7 @@ taxonomiesCount = true # Add taxonomies count
 [params.features]
 disqusOnDemand = true  # Load Disqus comments on click
 quicklinkJS = true  # Enable quicklink by Google
+quicklinkPriority = true
 
 
 [params.opengraph.facebook]
