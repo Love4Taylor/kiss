@@ -2,8 +2,9 @@
 <script src="{{ $quicklinkJS.RelPermalink }}"></script>
 <script>
 quicklink.listen({
-  timeout: 2000,
-  priority: true,
+  timeout: 2000,{{ if .Site.Params.Features.quicklinkPriority }}
+  priority: true,{{ else }}
+  priority: false,{{ end }}
   ignores: [
     uri => uri.includes('#'),
     uri => uri.includes('index.xml'),
