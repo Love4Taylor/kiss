@@ -62,7 +62,8 @@ rootURL = "//fathom.example.com/"
 
 [params.umamiAnalytics]
 siteID = "00000000-0000-0000-0000-000000000000"
-rootURL = "//umami.example.com/"
+domain = "umami.example.com"
+uri = "/"
 
 [taxonomies]
 tag ="tags"
