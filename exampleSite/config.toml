@@ -60,6 +60,10 @@ rootURL = "//matomo.example.com/"
 [params.fathomAnalytics]
 rootURL = "//fathom.example.com/"
 
+[params.umamiAnalytics]
+siteID = 00000000-0000-0000-0000-000000000000
+rootURL = "//umami.example.com/"
+
 [taxonomies]
 tag ="tags"
 
