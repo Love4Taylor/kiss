@@ -4,7 +4,7 @@
       <div class="level-left">
         <div class="level-item">
           {{ if .Paginator.HasPrev }}
-          <a class="button" href="{{ .Paginator.Prev.URL }}">
+          <a class="button{{ if .Site.Params.umamiAnalytics }} umami--click--newer-post-button{{ end }}" href="{{ .Paginator.Prev.URL }}">
             <span class="icon is-small is-marginless">
               {{ partial "svg/icons" "prev" }}
             </span>
@@ -16,7 +16,7 @@
       <div class="level-right is-marginless">
         <div class="level-item">
           {{ if .Paginator.HasNext }}
-          <a class="button" href="{{ .Paginator.Next.URL }}">
+          <a class="button{{ if .Site.Params.umamiAnalytics }} umami--click--older-post-button{{ end }}" href="{{ .Paginator.Next.URL }}">
             Older
             <span class="icon is-small is-marginless">
               {{ partial "svg/icons" "next" }}
